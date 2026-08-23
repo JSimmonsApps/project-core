@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsimmonsapps.github.io/project-core/core-manifest.schema.json",
+  "title": "Project CORE Manifest",
+  "description": "Portable definition of a personal offline resource environment.",
+  "type": "object",
+  "required": ["schema", "profile", "selectedIds"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "project-core/0.1"
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "profile": {
+      "type": "object",
+      "required": ["name", "region", "purpose", "notes"],
+      "properties": {
+        "name": { "type": "string" },
+        "region": { "type": "string" },
+        "purpose": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "selectedIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}
